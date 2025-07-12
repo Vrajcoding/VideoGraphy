@@ -17,22 +17,17 @@
   </div>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const videofile = params.get('src');
-    const videoplayer = document.querySelector("#videoPlayer");
-    const videosource = document.querySelector("#videoSource");
-    console.log(videofile);
-    console.log(videoplayer);
-    console.log(videosource);
-    
-    
-    
-    if(videofile) {
-    videosource.src = videofile;  // ✅ Use full URL from query string
-    videoplayer.load();
-} else {
-    videoplayer.style.display = "none";
-    document.getElementById('error').style.display = "block";
-}
+   const videofile = params.get('src');
+   const videosource = document.querySelector("#videoSource");
+
+   if (videofile) {
+       videosource.src = videofile;  
+       videosource.parentElement.load(); 
+   } else {
+       document.getElementById('videoPlayer').style.display = "none";
+       document.getElementById('error').style.display = "block";
+   }
+   
 
   </script>
 </body>
