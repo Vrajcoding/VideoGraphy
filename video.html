@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <link rel="stylesheet" href="video.css">
+</head>
+<body>
+    <video id="videoPlayer" controls autoplay>
+        <source id="videoSource" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="error" class="error" style="display: none;">
+    Video file not found or missing.
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const videofile = params.get('src');
+    const videoplayer = document.querySelector("#videoPlayer");
+    const videosource = document.querySelector("#videoSource");
+    console.log(videofile);
+    console.log(videoplayer);
+    console.log(videosource);
+    
+    
+    
+    if(videofile) {
+    videosource.src = videofile;  // ✅ Use full URL from query string
+    videoplayer.load();
+} else {
+    videoplayer.style.display = "none";
+    document.getElementById('error').style.display = "block";
+}
+
+  </script>
+</body>
+</html>

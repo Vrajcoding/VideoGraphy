@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h3>Logo</h3>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="links" id="links">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skill">Skill</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="images" id="home">
+      <div class="details">
+        <h1>Capture & Edit</h1>
+        <p>Capturing Moments That Matter</p>
+        <a href="#about">Go To Below</a>
+      </div>
+    </section>
+
+    <section id="about" class="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="projecte-grid">
+        <div class="project-card">
+          <a href="video.html?src=https://res.cloudinary.com/dgu3wlal6/video/upload/v1752249141/Joy_jkhlko.mp4">
+            <div class="image">
+              <img src="./photo/Joy & Pruthas.jpg" />
+            </div>
+          </a>
+          <h2>Highlight</h2>
+        </div>
+
+        <div class="project-card">
+          <a href="video.html?src=https://res.cloudinary.com/dgu3wlal6/video/upload/v1752248939/Couple_szo5ha.mp4">
+            <div class="image">
+              <img src="./photo/couple.png" alt="background-image" />
+            </div>
+          </a>
+          <h2>Couple</h2>
+        </div>
+
+        <div class="project-card">
+          <a href="video.html?src=https://res.cloudinary.com/dgu3wlal6/video/upload/v1752249169/Panchmasi_it7sd1.mp4">
+            <div class="image">
+              <img src="./photo/Panchsi reel.jpg" alt="background-image" />
+            </div>
+          </a>
+          <h2>Panchmasi reel</h2>
+        </div>
+
+        <div class="project-card">
+          <a href="video.html?src=https://res.cloudinary.com/dgu3wlal6/video/upload/v1752249078/Haldi_skti7w.mp4">
+            <div class="image">
+              <img src="./photo/hladi.jpg" alt="background-image" />
+            </div>
+          </a>
+          <h2>Haldi</h2>
+        </div>
+
+        <div class="project-card">
+          <a href="video.html?src=https://res.cloudinary.com/dgu3wlal6/video/upload/v1752249004/Engement_ilsdwd.mp4">
+            <div class="image">
+              <img src="./photo/engemnet reel.jpg" alt="background-image" />
+            </div>
+          </a>
+          <h2>Engement reel</h2>
+        </div>
+      </div>
+    </section>
+
+    <section id="skill" class="skill">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="works">
+          <h3>Works:</h3>
+          <ul>
+            <li><i class="fas fa-pen-to-square"></i>Edit a wedding job</li>
+            <li><i class="fas fa-film"></i>Reel</li>
+            <li><i class="fas fa-star"></i>Highlight</li>
+            <li><i class="fas fa-bolt"></i>Same day reel</li>
+            <li><i class="fas fa-video"></i>Other video</li>
+          </ul>
+        </div>
+        <div class="tools">
+          <h3>Tool:</h3>
+          <ul>
+            <li><i class="fas fa-video"></i>Premiere Pro</li>
+            <li><i class="fas fa-scissors"></i>Capcut</li>
+            <li><i class="fas fa-mobile-alt"></i>V.N</li>
+            <li><i class="fas fa-magic"></i>After Effects</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="footer-content">
+        <h3>Contact Me</h3>
+
+        <div class="contact-links">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:hkdbodar@gmail.com">hkdbodar@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:+919316265559">+91 9316265559</a>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/capture_.edit?igsh=YmhsdHcwNnY1N3I3" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://facebook.com/yourusername" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </div>
+
+        <p class="footer-copy">&copy; 2025 Your Name. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('links');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('show');
+      });
+    </script>
+    <script type="module" src="animation.js"></script>
+  </body>
+</html>
