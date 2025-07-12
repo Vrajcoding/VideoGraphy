@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
     scrollTrigger: {
       trigger: "#home",
       start: "top 80%",
+      end:"top 30%",
     },
     opacity: 0,
     y: 60,
@@ -22,6 +23,7 @@ gsap.registerPlugin(ScrollTrigger);
     opacity: 0,
     y: 50,
     duration: 1,
+    
   });
 
   
@@ -36,6 +38,7 @@ gsap.registerPlugin(ScrollTrigger);
       duration: 0.8,
       delay: i * 0.1,
       ease: "power2.out",
+    
     });
   });
 
@@ -48,6 +51,7 @@ gsap.registerPlugin(ScrollTrigger);
     opacity: 0,
     x: -100,
     duration: 1,
+  
   });
 
   gsap.from(".skills .works", {
@@ -59,6 +63,7 @@ gsap.registerPlugin(ScrollTrigger);
     x: -100,
     duration: 1,
     delay: 0.2,
+   
   });
 
   gsap.from(".skills .tools", {
@@ -70,6 +75,7 @@ gsap.registerPlugin(ScrollTrigger);
     x: 100,
     duration: 1,
     delay: 0.4,
+   
   });
 
 
@@ -81,6 +87,7 @@ gsap.registerPlugin(ScrollTrigger);
     opacity: 0,
     y: 60,
     duration: 1,
+   
   });
 
 
