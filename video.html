@@ -1,143 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        .video-container {
-            width: 90%;
-            max-width: 1000px;
-            position: relative;
-        }
-        #videoPlayer {
-            width: 100%;
-            outline: none;
-        }
-        .error {
-            color: white;
-            text-align: center;
-            padding: 20px;
-            background: #ff3333;
-            border-radius: 5px;
-            max-width: 500px;
-            margin: 20px auto;
-        }
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            color: white;
-            font-size: 24px;
-            text-decoration: none;
-            z-index: 100;
-            background: rgba(0,0,0,0.5);
-            padding: 10px;
-            border-radius: 50%;
-        }
-        .loading {
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Player</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .video-container {
+      width: 90%;
+      max-width: 1000px;
+      position: relative;
+    }
+
+    #videoPlayer {
+      width: 100%;
+      outline: none;
+      display: none;
+      border-radius: 8px;
+    }
+
+    .error {
+      color: white;
+      text-align: center;
+      padding: 20px;
+      background: #ff3333;
+      border-radius: 5px;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .loading {
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">←</a>
-    
-    <div class="video-container">
-        <video id="videoPlayer" controls autoplay playsinline preload="auto">
-            <source id="videoSource" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
-        <div id="loading" class="loading">Loading video...</div>
-    </div>
+  <a href="index.html" class="back-button">←</a>
 
-    <div id="error" class="error" style="display: none;">
-        Video failed to load. Please check the link or try again later.
-    </div>
+  <div class="video-container">
+    <video id="videoPlayer" controls autoplay playsinline preload="auto">
+      Your browser does not support HTML5 video.
+    </video>
+    <div id="loading" class="loading">Loading video...</div>
+  </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const params = new URLSearchParams(window.location.search);
-            const videofile = params.get('src');
-            const videoPlayer = document.getElementById('videoPlayer');
-            const videosource = document.getElementById('videoSource');
-            const errorDiv = document.getElementById('error');
-            const loadingDiv = document.getElementById('loading');
-            console.log(videofile);
-            console.log(videoPlayer);
-            console.log(videosource);
-            
-            
-            
+  <div id="error" class="error" style="display: none;">
+    Video failed to load. Please check the link or try again later.
+  </div>
 
-            if (videofile) {
-                
-                const decodedUrl = decodeURIComponent(videofile);
-                
-                
-                try {
-                    new URL(decodedUrl);
-                } catch (e) {
-                    showError("Invalid video URL");
-                    return;
-                }
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const params = new URLSearchParams(window.location.search);
+      const videoSrcParam = params.get('src');
+      const videoPlayer = document.getElementById('videoPlayer');
+      const errorDiv = document.getElementById('error');
+      const loadingDiv = document.getElementById('loading');
 
-                videosource.src = decodedUrl;
-                videoPlayer.load();
-                
-                
-                videoPlayer.addEventListener('canplay', function() {
-                    loadingDiv.style.display = 'none';
-                });
+      if (videoSrcParam) {
+        const decodedUrl = decodeURIComponent(videoSrcParam);
 
-                // Error handling
-                videoPlayer.addEventListener('error', function() {
-                    loadingDiv.style.display = 'none';
-                    
-                    let errorMessage = 'Video loading failed';
-                    if (videoPlayer.error) {
-                        switch(videoPlayer.error.code) {
-                            case 1:
-                                errorMessage = 'Video loading aborted';
-                                break;
-                            case 2:
-                                errorMessage = 'Network error - please check your connection';
-                                break;
-                            case 3:
-                                errorMessage = 'Error in video decoding';
-                                break;
-                            case 4:
-                                errorMessage = 'Video format not supported';
-                                break;
-                        }
-                    }
-                    showError(errorMessage);
-                });
-                
-            } else {
-                showError("No video source provided");
-            }
+        try {
+          new URL(decodedUrl); // Validates it's a proper URL
+        } catch (e) {
+          showError('Invalid video URL');
+          return;
+        }
 
-            function showError(message) {
-                videoPlayer.style.display = "none";
-                loadingDiv.style.display = "none";
-                errorDiv.style.display = "block";
-                errorDiv.textContent = message;
-                console.error(message);
-            }
+        videoPlayer.src = decodedUrl;
+        videoPlayer.load();
+
+        // Show video when ready
+        videoPlayer.addEventListener('canplay', function () {
+          loadingDiv.style.display = 'none';
+          videoPlayer.style.display = 'block';
         });
-    </script>
+
+        // Error handling
+        videoPlayer.addEventListener('error', function () {
+          loadingDiv.style.display = 'none';
+
+          let errorMessage = 'Video loading failed';
+          if (videoPlayer.error) {
+            switch (videoPlayer.error.code) {
+              case 1:
+                errorMessage = 'Video loading aborted';
+                break;
+              case 2:
+                errorMessage = 'Network error - please check your connection';
+                break;
+              case 3:
+                errorMessage = 'Error in video decoding';
+                break;
+              case 4:
+                errorMessage = 'Video format not supported';
+                break;
+            }
+          }
+          showError(errorMessage);
+        });
+      } else {
+        showError('No video source provided');
+      }
+
+      function showError(message) {
+        videoPlayer.style.display = 'none';
+        loadingDiv.style.display = 'none';
+        errorDiv.style.display = 'block';
+        errorDiv.textContent = message;
+        console.error(message);
+      }
+    });
+  </script>
 </body>
 </html>
