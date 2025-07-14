@@ -28,6 +28,15 @@ nav {
     font-weight: bold;
 }
 
+nav .logo {
+  height: 5rem;
+  width: 5rem;
+}
+
+nav .logo img {
+  height: 100%;
+  width: 100%;
+}
 .hamburger {
   display: none;
   flex-direction: column;
@@ -44,12 +53,7 @@ nav {
   transition: all 0.3s ease;
 }
 
-.logo {
-    font-size: 1.25rem;
-    color: #606c38;
-}
 
-/* Links */
 .links ul {
     display: flex;
     gap: 1.5rem;
@@ -376,7 +380,12 @@ nav {
   nav {
     flex-wrap: wrap;
   }
-
+  
+  nav .logo {
+  height: 3rem;
+  width: 3rem;
+  }
+  
   .hamburger {
     display: flex;
     margin-left: auto;
