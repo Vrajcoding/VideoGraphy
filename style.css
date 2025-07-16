@@ -303,15 +303,19 @@ nav .logo img {
   width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
+  background-color: #e9edc9;
   border: 1px solid #a3b18a;
   border-radius: 4px;
   outline: none;
-  transition: border 0.3s;
+  transition: all 0.3s;
 }
 
 .inquiry form div input:focus,
-.inquiry form div textarea:focus {
-  border-color: #bc6c25;  
+.inquiry form div textarea:focus,
+.inquiry form .btn:focus{
+ border-color: #bc6c25; 
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(188, 108, 37, 0.3);
 }
 
 .inquiry form .btn {
