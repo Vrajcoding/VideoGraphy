@@ -181,7 +181,7 @@ nav .logo img {
     color: #283618;
 }
 
-/* ...............................skils................................................ */
+
 .skill {
   min-height: 100vh;
   width: 100%;
@@ -255,6 +255,100 @@ nav .logo img {
 .tools ul li i {
   margin-right: 0.75rem;
 }
+
+
+.inquiry {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fefae0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.inquiry form {
+  padding: 2rem;
+  background-color: #fefae0;
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  color: #283618;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.inquiry form .heading {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.inquiry form div {
+  padding: 0.5rem 0;
+  margin-bottom: 10px;
+}
+
+.inquiry form div label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.inquiry form div input,
+.inquiry form div textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #a3b18a;
+  border-radius: 4px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.inquiry form div input:focus,
+.inquiry form div textarea:focus {
+  border-color: #bc6c25;  
+}
+
+.inquiry form .btn {
+  width: 100%;
+  padding: .5rem;
+  font-size: 1.2rem;
+  background-color: #a3b18a;
+  color: #3a4d39;
+  border-radius: .5rem;
+  border: none;
+  transition:all 0.3s ease;
+}
+
+.inquiry form .btn:focus {
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 480px) {
+  .inquiry form {
+    padding: 1rem;
+  }
+
+  .inquiry form .heading {
+    font-size: 1.25rem;
+  }
+
+  .inquiry form div label {
+    font-size: 0.95rem;
+  }
+
+  .inquiry form div input,
+  .inquiry form div textarea {
+    font-size: 0.95rem;
+  }
+}
+
 
 .footer {
   background-color: #ccd5ae;
